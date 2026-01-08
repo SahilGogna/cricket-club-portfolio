@@ -188,4 +188,12 @@
     .header-social {
         gap: var(--space-1);
     }
+
+    .btn-contact {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+    }
 }
