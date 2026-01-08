@@ -1,0 +1,31 @@
+/* Page styles */
+.page-hero {
+    padding: 80px 0 var(--space-4);
+    background: var(--color-white);
+    text-align: center;
+}
+
+.page-hero h1 {
+    margin-bottom: var(--space-4);
+}
+
+.page-hero-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Content block */
+.content-block {
+    text-align: center;
+    padding: var(--space-16) 0;
+}
+
+.content-block h2 {
+    margin-bottom: var(--space-4);
+}
+
+.content-block p {
+    color: var(--color-text-secondary);
+}
