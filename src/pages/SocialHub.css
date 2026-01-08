@@ -146,22 +146,12 @@
     }
 
     .reels-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-3);
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
     }
 
-    .reel-card {
-        max-height: 250px;
-    }
-
-    .reel-placeholder svg {
-        width: 32px;
-        height: 32px;
-    }
-
-    .reel-placeholder span {
-        font-size: 0.7rem;
-        padding: var(--space-1) var(--space-2);
+    .reel-embed iframe {
+        min-height: 550px;
     }
 
     .youtube-section,

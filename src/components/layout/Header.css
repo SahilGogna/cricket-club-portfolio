@@ -69,15 +69,9 @@
 }
 
 .header-social {
-    display: none;
+    display: flex;
     align-items: center;
     gap: var(--space-2);
-}
-
-@media (min-width: 768px) {
-    .header-social {
-        display: flex;
-    }
 }
 
 .social-icon {
@@ -179,5 +173,19 @@
         width: 100%;
         text-align: center;
         padding: var(--space-3) var(--space-4);
+    }
+
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .header-social {
+        gap: var(--space-1);
     }
 }
