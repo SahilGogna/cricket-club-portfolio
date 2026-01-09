@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
+import MinimalFooter from './MinimalFooter';
 import './Layout.css';
 
 function Layout() {
@@ -9,7 +10,7 @@ function Layout() {
             <main className="main-content">
                 <Outlet />
             </main>
-            {/* Footer removed for cleaner, less commercial feel */}
+            <MinimalFooter />
         </div>
     );
 }
