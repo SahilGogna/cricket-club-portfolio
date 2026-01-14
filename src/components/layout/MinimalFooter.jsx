@@ -35,7 +35,7 @@ function MinimalFooter() {
                 </div>
                 <div className="footer-credit">
                     Made with <span className="heart">❤️</span> by{' '}
-                    <a href="https://www.linkedin.com/in/gognasahil/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/sahilgogna_/" target="_blank" rel="noopener noreferrer">
                         Sahil Gogna
                     </a>
                 </div>
