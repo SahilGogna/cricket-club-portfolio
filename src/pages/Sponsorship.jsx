@@ -156,27 +156,6 @@ function Sponsorship() {
                     </div>
                 </div>
             </section>
-
-            {/* CTA Section */}
-            <section className="sponsorship-cta">
-                <div className="container">
-                    <h2 className="text-h2">Ready to Partner With Us?</h2>
-                    <p>
-                        Join our growing family of sponsors and make a lasting impact on local cricket in the Waterloo region.
-                    </p>
-                    <div className="cta-buttons">
-                        <a href="/contact" className="btn btn-primary btn-lg">
-                            Contact Us
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        <a href="/about" className="btn btn-secondary btn-lg">
-                            Learn About Us
-                        </a>
-                    </div>
-                </div>
-            </section>
         </>
     );
 }
