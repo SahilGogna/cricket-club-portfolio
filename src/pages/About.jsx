@@ -40,7 +40,6 @@ function About() {
             {/* Hero Section */}
             <section className="page-hero section-dark">
                 <div className="container">
-                    <span className="section-eyebrow" style={{ color: 'var(--color-accent-400)' }}>About Us</span>
                     <h1 className="text-display">Executive Summary</h1>
                     <p className="page-hero-subtitle">
                         A family-oriented cricket club making an impact in Ontario's premier leagues.

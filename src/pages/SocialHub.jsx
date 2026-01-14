@@ -17,7 +17,6 @@ function SocialHub() {
         <>
             <section className="page-hero section-dark">
                 <div className="container">
-                    <span className="section-eyebrow" style={{ color: 'var(--color-accent-400)' }}>Connect</span>
                     <h1 className="text-display">Social Hub</h1>
                     <p className="page-hero-subtitle">
                         Follow our journey across YouTube and Instagram.

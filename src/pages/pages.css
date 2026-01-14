@@ -1,8 +1,9 @@
 /* Page styles */
 .page-hero {
-    padding: 40px 0 var(--space-2);
-    background: var(--color-white);
+    padding: 60px 0 40px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .page-hero h1 {
@@ -10,10 +11,57 @@
 }
 
 .page-hero-subtitle {
-    color: var(--color-text-secondary);
     font-size: 1.125rem;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Dark Hero Section - Premium styling */
+.page-hero.section-dark {
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, #1a1a2e 100%);
+}
+
+.page-hero.section-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.page-hero.section-dark .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero.section-dark h1 {
+    color: var(--color-white);
+}
+
+.page-hero.section-dark .page-hero-subtitle {
+    color: var(--color-gray-300);
+}
+
+/* Section eyebrow text */
+.section-eyebrow {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-3);
+    color: var(--color-accent);
+}
+
+/* Light cream section */
+.section-cream {
+    background: var(--color-gray-50);
 }
 
 /* Content block */
@@ -28,4 +76,15 @@
 
 .content-block p {
     color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .page-hero {
+        padding: 40px 0 30px;
+    }
+
+    .page-hero-subtitle {
+        font-size: 1rem;
+    }
 }

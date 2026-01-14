@@ -121,8 +121,20 @@
 .leader-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* Adjust for first leader card (different image ratio) */
+.leader-card:first-child .leader-image {
+    transform: scale(1.1);
+    transform-origin: top center;
+}
+
+/* Other leader cards - zoom more to match first card's ratio */
+.leader-card:not(:first-child) .leader-image {
+    transform: scale(1.6);
+    transform-origin: top center;
 }
 
 .leader-info {

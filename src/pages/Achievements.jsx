@@ -102,7 +102,7 @@ function Achievements() {
 
     return (
         <>
-            <section className="page-hero">
+            <section className="page-hero section-dark">
                 <div className="container">
                     <h1 className="text-display">Achievements</h1>
                     <p className="page-hero-subtitle">
