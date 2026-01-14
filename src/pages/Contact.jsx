@@ -3,7 +3,7 @@ import './Contact.css';
 
 // For testing: gogna.sahil95@gmail.com
 // For production: Brothers11cricket@gmail.com
-const FORM_ENDPOINT = 'https://formspree.io/f/xpwzgkvq';
+const FORM_ENDPOINT = 'https://formspree.io/f/xaqqygze';
 
 const playerRoles = [
     { value: '', label: 'Select your role' },
