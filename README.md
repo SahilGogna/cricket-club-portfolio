@@ -1,16 +1,62 @@
-# React + Vite
+# Brothers XI Cricket Club — Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for **Brothers XI Cricket Club**, a family-oriented cricket club based in the Region of Waterloo, Ontario. Built with React + Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌗 Theme Preview
 
-## React Compiler
+### ☀️ Light Mode
+| Home | Sponsorship |
+|---|---|
+| ![Home Light](docs/screenshots/home-light.png) | ![Sponsorship Light](docs/screenshots/sponsorship-light.png) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌙 Dark Mode
+| Home | Sponsorship |
+|---|---|
+| ![Home Dark](docs/screenshots/home-dark.png) | ![Sponsorship Dark](docs/screenshots/sponsorship-dark.png) |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🏏 Pages
+
+| Page | Description |
+|---|---|
+| **Home** | Hero section, club highlights, match results |
+| **About** | Club story, leagues, leadership team |
+| **Achievements** | Trophies, milestones, season highlights |
+| **Social** | Embedded YouTube videos & Instagram reels |
+| **Sponsorship** | 2026 season partners (flip cards) + available sponsorship packages |
+| **Contact** | Inquiry form powered by Formspree |
+
+---
+
+## ✨ Features
+
+- **Light / Dark theme toggle** — preference persisted via `localStorage`, light mode default
+- **2026 Sponsor flip cards** — logo + description on front, testimonial on hover/flip
+- **"Slot Filled" indicator** — visual ribbon + disabled CTA for taken sponsorship tiers
+- **GSAP animations** — scroll-triggered entrances across all pages
+- **Fully responsive** — mobile-first layout
+
+---
+
+## 🛠 Tech Stack
+
+- **React 18** + **Vite**
+- **React Router v6**
+- **GSAP** + ScrollTrigger
+- **Formspree** (contact & sponsorship forms)
+- **DM Sans** + **Inter** (Google Fonts)
+- **Vanilla CSS** with CSS custom properties for theming
+
+---
+
+## 🚀 Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
