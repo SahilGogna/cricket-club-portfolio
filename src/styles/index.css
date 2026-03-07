@@ -1,47 +1,40 @@
 /* ========================================
-   Brothers XI Cricket Club - Light Clean Design
-   Volly-inspired: White, Clean, Image-focused
+   Brothers XI Cricket Club — Brand Theme
+   Dark + Light modes | DM Sans + Inter
    ======================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  /* Neutral Colors */
-  --color-white: #ffffff;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  /* === Brand Palette === */
+  --color-dark-red: #50071F;
+  --color-light-red: #892139;
+  --color-navy: #081127;
+  --color-golden: #B4894F;
 
-  /* Accent - Orange/Coral */
-  --color-accent: #f97316;
-  --color-accent-hover: #ea580c;
-  --color-accent-light: #fff7ed;
+  /* === Extended Palette === */
+  --color-deep-navy: #040B18;
+  --color-muted-gold: #8A6535;
+  --color-off-white: #F5F0E8;
+  --color-white: #FFFFFF;
+  --color-grey: #CCBFB5;
 
-  /* Secondary - Green for success */
-  --color-green: #22c55e;
-  --color-green-light: #dcfce7;
+  /* === Semantic Roles === */
+  --bg-page: var(--color-deep-navy);
+  --bg-section: var(--color-navy);
+  --bg-hero: var(--color-dark-red);
+  --text-primary: var(--color-off-white);
+  --text-secondary: var(--color-grey);
+  --text-heading: var(--color-golden);
+  --accent: var(--color-golden);
+  --accent-hover: var(--color-muted-gold);
+  --border: var(--color-light-red);
 
-  /* Backgrounds */
-  --color-bg-primary: var(--color-white);
-  --color-bg-secondary: var(--color-gray-50);
-  --color-bg-dark: var(--color-gray-900);
-
-  /* Text */
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-400);
-  --color-text-light: var(--color-white);
-
-  /* Typography */
+  /* === Typography === */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Outfit', var(--font-primary);
+  --font-display: 'DM Sans', 'Inter', sans-serif;
 
-  /* Spacing */
+  /* === Spacing === */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -55,7 +48,7 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* Border Radius */
+  /* === Border Radius === */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
@@ -64,25 +57,57 @@
   --radius-3xl: 2.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  /* === Shadows === */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 8px 30px rgba(180, 137, 79, 0.25);
 
-  /* Transitions */
+  /* === Transitions === */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  /* Container */
+  /* === Container === */
   --container-max: 1200px;
-
-  /* Z-index */
   --z-header: 100;
 }
 
-/* Reset */
+/* ============================================================
+   Light Theme Overrides
+   ============================================================ */
+[data-theme="light"] {
+  --bg-page: #F5F0E8;
+  --bg-section: #EDE7DA;
+  --bg-hero: var(--color-dark-red);
+  /* hero stays dark red */
+  --text-primary: #081127;
+  --text-secondary: #3a2a1a;
+  --text-heading: #081127;
+  --border: rgba(80, 7, 31, 0.25);
+
+  /* Card / surface */
+  --card-bg: #FFFFFF;
+  --card-border: rgba(80, 7, 31, 0.12);
+
+  /* Scrollbar */
+  --scrollbar-track: #EDE7DA;
+  --scrollbar-thumb: var(--color-light-red);
+}
+
+/* Smooth theme transition on all elements */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -92,16 +117,18 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-primary);
-  background: var(--color-bg-secondary);
-  color: var(--color-text-primary);
-  line-height: 1.6;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
 img {
@@ -135,11 +162,24 @@ h5,
 h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-text-primary);
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
-/* Container */
+/* Force white headings inside dark/hero sections */
+.page-hero h1,
+.page-hero h2,
+.page-hero h3,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  color: var(--color-off-white);
+}
+
+/* ============================================================
+   Container
+   ============================================================ */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -147,11 +187,21 @@ h6 {
   padding: 0 var(--space-6);
 }
 
-/* Typography */
+/* ============================================================
+   Typography Scale
+   ============================================================ */
 .text-display {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
   line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* Hero/dark contexts override display text to white */
+.page-hero .text-display,
+.section-dark .text-display {
+  color: var(--color-off-white);
 }
 
 .text-h1 {
@@ -159,14 +209,16 @@ h6 {
 }
 
 .text-h2 {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
 }
 
 .text-h3 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
-/* Buttons */
+/* ============================================================
+   Buttons
+   ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -178,37 +230,50 @@ h6 {
   border-radius: var(--radius-full);
   transition: all var(--transition-base);
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .btn-primary {
-  background: var(--color-accent);
-  color: var(--color-text-light);
+  background: var(--color-golden);
+  color: var(--color-deep-navy);
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-muted-gold);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-accent {
+  background: var(--color-golden);
+  color: var(--color-deep-navy);
+}
+
+.btn-accent:hover {
+  background: var(--color-muted-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
 }
 
 .btn-secondary {
-  background: var(--color-white);
-  color: var(--color-text-primary);
-  border: 1.5px solid var(--color-gray-200);
+  background: transparent;
+  color: var(--color-off-white);
+  border: 1.5px solid var(--color-light-red);
 }
 
 .btn-secondary:hover {
-  background: var(--color-gray-50);
-  border-color: var(--color-gray-300);
+  background: rgba(137, 33, 57, 0.2);
+  border-color: var(--color-golden);
+  color: var(--color-golden);
 }
 
 .btn-dark {
-  background: var(--color-gray-900);
-  color: var(--color-text-light);
+  background: var(--color-dark-red);
+  color: var(--color-off-white);
 }
 
 .btn-dark:hover {
-  background: var(--color-gray-800);
+  background: var(--color-light-red);
 }
 
 .btn-lg {
@@ -223,10 +288,13 @@ h6 {
   border-radius: var(--radius-lg);
 }
 
-/* Cards */
+/* ============================================================
+   Cards
+   ============================================================ */
 .card {
-  background: var(--color-white);
+  background: var(--card-bg, var(--color-navy));
   border-radius: var(--radius-2xl);
+  border: 1px solid var(--card-border, rgba(137, 33, 57, 0.3));
   overflow: hidden;
   transition: all var(--transition-base);
 }
@@ -234,6 +302,7 @@ h6 {
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border-color: var(--color-golden);
 }
 
 .card-image {
@@ -246,34 +315,28 @@ h6 {
   padding: var(--space-6);
 }
 
-/* Image with rounded corners */
-.img-rounded {
-  border-radius: var(--radius-2xl);
-  overflow: hidden;
-}
-
-.img-rounded img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Section */
+/* ============================================================
+   Sections
+   ============================================================ */
 .section {
   padding: var(--space-20) 0;
 }
 
 .section-white {
-  background: var(--color-white);
+  background: var(--bg-section);
 }
 
 .section-gray {
-  background: var(--color-gray-50);
+  background: var(--color-deep-navy);
 }
 
 .section-dark {
-  background: var(--color-gray-900);
-  color: var(--color-text-light);
+  background: var(--color-dark-red);
+  color: var(--color-off-white);
+}
+
+.section-cream {
+  background: var(--bg-section);
 }
 
 .section-header {
@@ -285,9 +348,12 @@ h6 {
 }
 
 .section-subtitle {
-  color: var(--color-text-secondary);
-  margin-top: var(--space-3);
-  max-width: 500px;
+  color: var(--text-secondary);
+  margin-top: var(--space-4);
+  max-width: 560px;
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .section-header.center .section-subtitle {
@@ -295,7 +361,25 @@ h6 {
   margin-right: auto;
 }
 
-/* Badge/Tag */
+/* Golden underline for section headings */
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-golden);
+  margin-top: var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.section-header.center h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   Tags / Badges
+   ============================================================ */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -303,21 +387,51 @@ h6 {
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: var(--radius-full);
-  background: var(--color-gray-100);
-  color: var(--color-text-secondary);
+  background: rgba(180, 137, 79, 0.15);
+  color: var(--color-golden);
+  border: 1px solid rgba(180, 137, 79, 0.3);
+  font-family: var(--font-primary);
 }
 
 .tag-accent {
-  background: var(--color-accent-light);
-  color: var(--color-accent);
+  background: rgba(180, 137, 79, 0.2);
+  color: var(--color-golden);
 }
 
 .tag-success {
-  background: var(--color-green-light);
-  color: var(--color-green);
+  background: rgba(137, 33, 57, 0.2);
+  color: var(--color-light-red);
 }
 
-/* Grid */
+/* ============================================================
+   Pill Navigation
+   ============================================================ */
+.pills {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  font-family: var(--font-primary);
+}
+
+.pill:hover,
+.pill.active {
+  background: var(--color-dark-red);
+  color: var(--color-golden);
+}
+
+/* ============================================================
+   Grid Helpers
+   ============================================================ */
 .grid {
   display: grid;
   gap: var(--space-6);
@@ -352,67 +466,91 @@ h6 {
   }
 }
 
-/* Arrow icon button */
+/* ============================================================
+   Image Helpers
+   ============================================================ */
+.img-rounded {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.img-rounded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   Arrow Button
+   ============================================================ */
 .arrow-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--color-gray-900);
-  color: var(--color-white);
+  background: var(--color-dark-red);
+  color: var(--color-off-white);
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
 }
 
 .arrow-btn:hover {
-  background: var(--color-accent);
+  background: var(--color-golden);
+  color: var(--color-deep-navy);
   transform: scale(1.05);
 }
 
-/* Pill navigation */
-.pills {
-  display: flex;
-  gap: var(--space-2);
-  flex-wrap: wrap;
-}
-
-.pill {
-  padding: var(--space-2) var(--space-4);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  background: transparent;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
-}
-
-.pill:hover,
-.pill.active {
-  background: var(--color-gray-900);
-  color: var(--color-white);
-}
-
-/* Scrollbar */
+/* ============================================================
+   Scrollbar
+   ============================================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-gray-100);
+  background: var(--color-deep-navy);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-300);
+  background: var(--color-light-red);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-400);
+  background: var(--color-golden);
 }
 
-/* Selection */
+/* ============================================================
+   Selection
+   ============================================================ */
 ::selection {
-  background: var(--color-accent);
-  color: white;
+  background: var(--color-golden);
+  color: var(--color-deep-navy);
+}
+
+/* ============================================================
+   Page Hero (shared across inner pages)
+   ============================================================ */
+.page-hero {
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, var(--color-dark-red) 0%, #3a0515 60%, var(--color-navy) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(180, 137, 79, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero-subtitle {
+  color: var(--color-grey);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: var(--space-4);
+  font-family: var(--font-primary);
+  font-weight: 400;
 }

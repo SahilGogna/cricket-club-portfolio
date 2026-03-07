@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Contact.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // For testing: gogna.sahil95@gmail.com
 // For production: Brothers11cricket@gmail.com
@@ -39,6 +43,32 @@ const bowlingTypes = [
 ];
 
 function Contact() {
+    const heroRef = useRef(null);
+    const formRef = useRef(null);
+
+    useEffect(() => {
+        // Hero entrance
+        const heroEls = heroRef.current?.querySelectorAll('h1, p');
+        if (heroEls) {
+            gsap.fromTo(heroEls,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+            );
+        }
+
+        // Form card scroll reveal
+        if (formRef.current) {
+            gsap.fromTo(formRef.current,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+                    scrollTrigger: { trigger: formRef.current, start: 'top 85%' }
+                }
+            );
+        }
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -135,7 +165,7 @@ function Contact() {
 
     return (
         <>
-            <section className="page-hero section-dark">
+            <section className="page-hero" ref={heroRef}>
                 <div className="container">
                     <h1 className="text-display">Join the Team</h1>
                     <p className="page-hero-subtitle">
@@ -152,7 +182,7 @@ function Contact() {
                         <div className="contact-intro-line"></div>
                     </div>
 
-                    <div className="contact-form-card">
+                    <div className="contact-form-card" ref={formRef}>
                         <form onSubmit={handleSubmit}>
                             <div className="form-row">
                                 <div className="form-group">

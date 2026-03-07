@@ -1,6 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Sponsorship.css';
 import './Contact.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // For testing: gogna.sahil95@gmail.com
 // For production: Brothers11cricket@gmail.com
@@ -108,6 +112,9 @@ const sponsorshipPackages = [
 
 function Sponsorship() {
     const formRef = useRef(null);
+    const heroRef = useRef(null);
+    const packagesRef = useRef(null);
+
     const [formData, setFormData] = useState({
         organization: '',
         contactName: '',
@@ -118,6 +125,31 @@ function Sponsorship() {
     });
     const [status, setStatus] = useState({ type: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+    useEffect(() => {
+        // Hero entrance
+        const heroEls = heroRef.current?.querySelectorAll('h1, p');
+        if (heroEls) {
+            gsap.fromTo(heroEls,
+                { y: 50, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, stagger: 0.15, ease: 'power3.out' }
+            );
+        }
+
+        // Package cards stagger
+        if (packagesRef.current) {
+            gsap.fromTo(packagesRef.current.querySelectorAll('.package-card'),
+                { y: 60, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+                    scrollTrigger: { trigger: packagesRef.current, start: 'top 80%' }
+                }
+            );
+        }
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
 
     const scrollToForm = (tier) => {
         // Pre-select the sponsorship level in the form
@@ -188,7 +220,7 @@ function Sponsorship() {
     return (
         <>
             {/* Hero Section */}
-            <section className="page-hero section-dark">
+            <section className="page-hero" ref={heroRef}>
                 <div className="container">
                     <h1 className="text-display">Sponsorship Opportunities</h1>
                     <p className="page-hero-subtitle">
@@ -206,7 +238,7 @@ function Sponsorship() {
                         <p>Choose the partnership level that best fits your brand and goals</p>
                     </div>
 
-                    <div className="packages-grid">
+                    <div className="packages-grid" ref={packagesRef}>
                         {sponsorshipPackages.map((pkg) => (
                             <article
                                 key={pkg.tier}

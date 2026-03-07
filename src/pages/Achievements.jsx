@@ -1,4 +1,9 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Achievements.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Import league logos
 import socaLogo from '../assets/images/soca-logo.jpeg';
@@ -22,6 +27,44 @@ const Trophy = ({ color = 'gold' }) => {
 };
 
 function Achievements() {
+    const heroRef = useRef(null);
+    const grid2025Ref = useRef(null);
+    const grid2024Ref = useRef(null);
+
+    useEffect(() => {
+        // Hero entrance
+        const heroEls = heroRef.current?.querySelectorAll('h1, p');
+        if (heroEls) {
+            gsap.fromTo(heroEls,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+            );
+        }
+
+        // 2025 cards stagger
+        if (grid2025Ref.current) {
+            gsap.fromTo(grid2025Ref.current.querySelectorAll('.achievement-card'),
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out',
+                    scrollTrigger: { trigger: grid2025Ref.current, start: 'top 80%' }
+                }
+            );
+        }
+
+        // 2024 cards stagger
+        if (grid2024Ref.current) {
+            gsap.fromTo(grid2024Ref.current.querySelectorAll('.achievement-card'),
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out',
+                    scrollTrigger: { trigger: grid2024Ref.current, start: 'top 80%' }
+                }
+            );
+        }
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
     // 2025 Achievements data
     const achievements2025 = [
         {
@@ -102,7 +145,7 @@ function Achievements() {
 
     return (
         <>
-            <section className="page-hero section-dark">
+            <section className="page-hero" ref={heroRef}>
                 <div className="container">
                     <h1 className="text-display">Achievements</h1>
                     <p className="page-hero-subtitle">
@@ -118,7 +161,7 @@ function Achievements() {
                         <h2>Brothers XI 2025 Season Achievements</h2>
                         <p>4 Leagues, 4 Success Stories</p>
                     </div>
-                    <div className="achievements-grid">
+                    <div className="achievements-grid" ref={grid2025Ref}>
                         {achievements2025.map((achievement, index) => (
                             <AchievementCard key={index} achievement={achievement} showLogo={true} />
                         ))}
@@ -133,7 +176,7 @@ function Achievements() {
                         <h2>Brothers XI 2024 Season Achievements</h2>
                         <p>2 Leagues, 2 Success Stories</p>
                     </div>
-                    <div className="achievements-grid">
+                    <div className="achievements-grid" ref={grid2024Ref}>
                         {achievements2024.map((achievement, index) => (
                             <AchievementCard key={index} achievement={achievement} showLogo={false} />
                         ))}

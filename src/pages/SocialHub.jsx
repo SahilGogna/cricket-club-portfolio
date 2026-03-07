@@ -15,7 +15,7 @@ const instagramReels = [
 function SocialHub() {
     return (
         <>
-            <section className="page-hero section-dark">
+            <section className="page-hero">
                 <div className="container">
                     <h1 className="text-display">Social Hub</h1>
                     <p className="page-hero-subtitle">

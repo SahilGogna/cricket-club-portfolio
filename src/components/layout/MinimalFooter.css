@@ -1,8 +1,8 @@
 /* Minimal Footer */
 .minimal-footer {
     padding: var(--space-8) 0 var(--space-4);
-    background: var(--color-white);
-    border-top: 1px solid var(--color-gray-100);
+    background: var(--color-deep-navy);
+    border-top: 1px solid rgba(137, 33, 57, 0.4);
 }
 
 .footer-row {
@@ -19,15 +19,17 @@
     font-weight: 700;
     display: block;
     margin-bottom: var(--space-1);
+    color: var(--color-off-white);
 }
 
 .footer-brand .logo-accent {
-    color: var(--color-accent);
+    color: var(--color-golden);
 }
 
 .footer-brand p {
     font-size: 0.75rem;
-    color: var(--color-text-muted);
+    color: var(--color-grey);
+    font-family: var(--font-primary);
 }
 
 .footer-contact {
@@ -36,16 +38,18 @@
     align-items: center;
     gap: var(--space-1);
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: var(--color-grey);
+    font-family: var(--font-primary);
 }
 
 .footer-contact a:hover {
-    color: var(--color-accent);
+    color: var(--color-golden);
 }
 
 .footer-location {
     font-size: 0.8rem;
-    color: var(--color-text-muted);
+    color: var(--color-grey);
+    font-family: var(--font-primary);
 }
 
 .footer-social {
@@ -59,24 +63,27 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: var(--color-gray-100);
+    background: rgba(137, 33, 57, 0.2);
     border-radius: var(--radius-md);
-    color: var(--color-text-secondary);
+    border: 1px solid rgba(137, 33, 57, 0.3);
+    color: var(--color-grey);
     transition: all var(--transition-fast);
 }
 
 .social-link:hover {
-    background: var(--color-gray-900);
-    color: var(--color-white);
+    background: var(--color-golden);
+    color: var(--color-deep-navy);
+    border-color: var(--color-golden);
 }
 
 .footer-credit {
     text-align: center;
     margin-top: var(--space-6);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--color-gray-100);
+    border-top: 1px solid rgba(137, 33, 57, 0.25);
     font-size: 0.8rem;
-    color: var(--color-text-muted);
+    color: rgba(204, 191, 181, 0.5);
+    font-family: var(--font-primary);
 }
 
 .footer-credit .heart {
@@ -84,7 +91,7 @@
 }
 
 .footer-credit a {
-    color: var(--color-accent);
+    color: var(--color-golden);
     font-weight: 600;
 }
 
@@ -106,4 +113,33 @@
     .footer-social {
         order: 3;
     }
+}
+
+/* ============================================================
+   Light Theme Overrides
+   ============================================================ */
+[data-theme="light"] .minimal-footer {
+    background: var(--bg-section);
+    border-top-color: rgba(80, 7, 31, 0.2);
+}
+
+[data-theme="light"] .footer-brand .logo {
+    color: var(--color-navy);
+}
+
+[data-theme="light"] .footer-brand p,
+[data-theme="light"] .footer-contact,
+[data-theme="light"] .footer-location {
+    color: #3a2a1a;
+}
+
+[data-theme="light"] .social-link {
+    background: rgba(80, 7, 31, 0.08);
+    border-color: rgba(80, 7, 31, 0.18);
+    color: #3a2a1a;
+}
+
+[data-theme="light"] .footer-credit {
+    color: rgba(8, 17, 39, 0.45);
+    border-top-color: rgba(80, 7, 31, 0.15);
 }

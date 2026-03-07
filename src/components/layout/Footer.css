@@ -1,7 +1,8 @@
 .footer {
-    background: var(--color-bg-dark);
-    color: var(--color-text-light);
+    background: var(--color-deep-navy);
+    color: var(--text-primary);
     padding: var(--space-16) 0 var(--space-8);
+    border-top: 1px solid rgba(137, 33, 57, 0.4);
 }
 
 .footer-content {
@@ -9,28 +10,29 @@
     grid-template-columns: 1.5fr 2fr;
     gap: var(--space-12);
     padding-bottom: var(--space-12);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(137, 33, 57, 0.3);
 }
 
 /* Brand */
 .footer-logo {
     display: inline-flex;
     gap: var(--space-2);
-    font-family: var(--font-family-display);
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    color: var(--color-text-light);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-off-white);
     margin-bottom: var(--space-4);
 }
 
 .footer-logo .accent {
-    color: var(--color-accent-400);
+    color: var(--color-golden);
 }
 
 .footer-tagline {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: var(--text-sm);
+    color: var(--color-grey);
+    font-size: 0.875rem;
     max-width: 250px;
+    line-height: 1.6;
 }
 
 /* Links */
@@ -41,23 +43,27 @@
 }
 
 .footer-col h4 {
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: var(--space-4);
-    color: var(--color-text-light);
+    color: var(--color-golden);
+    font-family: var(--font-primary);
 }
 
 .footer-col a,
 .footer-col span {
     display: block;
-    font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    color: var(--color-grey);
     margin-bottom: var(--space-2);
     transition: color var(--transition-fast);
+    font-family: var(--font-primary);
 }
 
 .footer-col a:hover {
-    color: var(--color-accent-400);
+    color: var(--color-golden);
 }
 
 /* Bottom */
@@ -67,8 +73,9 @@
 }
 
 .footer-bottom p {
-    font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    color: rgba(245, 240, 232, 0.35);
+    font-family: var(--font-primary);
 }
 
 /* Responsive */

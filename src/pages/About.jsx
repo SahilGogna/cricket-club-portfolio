@@ -1,7 +1,12 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
 import harshitImg from '../assets/images/Harshit Sethi.png';
 import dilpreetImg from '../assets/images/Dilpreet Singh.png';
 import kharkImg from '../assets/images/Khark Sidhu.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const leaders = [
     {
@@ -35,10 +40,51 @@ const leagues = [
 ];
 
 function About() {
+    const heroRef = useRef(null);
+    const leaguesRef = useRef(null);
+    const leadersRef = useRef(null);
+
+    useEffect(() => {
+        // Hero text entrance
+        const heroEls = heroRef.current?.querySelectorAll('h1, p');
+        if (heroEls) {
+            gsap.fromTo(heroEls,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+            );
+        }
+
+        // League items stagger in
+        if (leaguesRef.current) {
+            const items = leaguesRef.current.querySelectorAll('li, .about-highlight');
+            gsap.fromTo(items,
+                { x: -30, opacity: 0 },
+                {
+                    x: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+                    scrollTrigger: { trigger: leaguesRef.current, start: 'top 80%' },
+                }
+            );
+        }
+
+        // Leader cards stagger in
+        if (leadersRef.current) {
+            const cards = leadersRef.current.querySelectorAll('.leader-card');
+            gsap.fromTo(cards,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out',
+                    scrollTrigger: { trigger: leadersRef.current, start: 'top 80%' },
+                }
+            );
+        }
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, []);
+
     return (
         <>
             {/* Hero Section */}
-            <section className="page-hero section-dark">
+            <section className="page-hero" ref={heroRef}>
                 <div className="container">
                     <h1 className="text-display">Executive Summary</h1>
                     <p className="page-hero-subtitle">
@@ -48,10 +94,10 @@ function About() {
             </section>
 
             {/* About Content */}
-            <section className="section section-white about-content">
+            <section className="section about-content">
                 <div className="container">
                     <div className="about-grid">
-                        <div className="about-text">
+                        <div className="about-text" ref={leaguesRef}>
                             <h2 className="text-h2">Our Story</h2>
                             <p className="about-intro">
                                 Brother's XI Cricket Club is a family-oriented club based in Region of Waterloo.
@@ -86,7 +132,7 @@ function About() {
             </section>
 
             {/* Leadership Section */}
-            <section className="section section-cream leadership-section">
+            <section className="section leadership-section">
                 <div className="container">
                     <div className="section-header center">
                         <h2 className="text-h2">Club Leadership</h2>
@@ -95,7 +141,7 @@ function About() {
                         </p>
                     </div>
 
-                    <div className="leaders-grid">
+                    <div className="leaders-grid" ref={leadersRef}>
                         {leaders.map((leader) => (
                             <article key={leader.name} className="leader-card">
                                 <div className="leader-image-wrapper">

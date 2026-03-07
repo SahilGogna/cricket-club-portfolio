@@ -112,17 +112,17 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-6);
-    border: 2px solid var(--color-gray-900);
+    border: 2px solid var(--color-dark-red);
     border-radius: var(--radius-lg);
     font-weight: 600;
-    color: var(--color-gray-900);
+    color: var(--color-dark-red);
     text-decoration: none;
     transition: all var(--transition-fast);
 }
 
 .btn-outline:hover {
-    background: var(--color-gray-900);
-    color: var(--color-white);
+    background: var(--color-dark-red);
+    color: var(--color-off-white);
 }
 
 /* Responsive */
@@ -158,4 +158,62 @@
     .instagram-section {
         padding: var(--space-8) 0;
     }
+}
+
+/* ============================================================
+   Dark Theme (default :root already covers this, but explicit
+   overrides for Social Hub specific elements)
+   ============================================================ */
+.youtube-section,
+.instagram-section {
+    background: var(--bg-section);
+}
+
+/* In dark mode, btn-outline should use a lighter colour for contrast */
+.btn-outline {
+    border-color: var(--color-golden);
+    color: var(--color-golden);
+}
+
+.btn-outline:hover {
+    background: var(--color-golden);
+    color: var(--color-deep-navy);
+}
+
+/* ============================================================
+   Light Theme Overrides
+   ============================================================ */
+[data-theme="light"] .youtube-section,
+[data-theme="light"] .instagram-section {
+    background: var(--bg-section);
+}
+
+[data-theme="light"] .btn-outline {
+    border-color: var(--color-dark-red);
+    color: var(--color-dark-red);
+    background: transparent;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background: var(--color-dark-red);
+    color: var(--color-off-white);
+}
+
+[data-theme="light"] .platform-badge.youtube {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+[data-theme="light"] .platform-badge.instagram {
+    background: linear-gradient(135deg, #fef3c7, #fce7f3);
+    color: #a21caf;
+}
+
+[data-theme="light"] .video-card {
+    box-shadow: 0 2px 16px rgba(80, 7, 31, 0.10);
+}
+
+[data-theme="light"] .reel-embed {
+    background: #FFFFFF;
+    box-shadow: 0 2px 16px rgba(80, 7, 31, 0.10);
 }
