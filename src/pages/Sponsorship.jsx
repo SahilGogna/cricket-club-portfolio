@@ -4,7 +4,79 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Sponsorship.css';
 import './Contact.css';
 
+// Sponsor logos
+import fiveRiversLogo from '../assets/sponsor-logos/5-rivers.png';
+import urbanOpticalLogo from '../assets/sponsor-logos/urban-optical.png';
+import laalitLogo from '../assets/sponsor-logos/lalit-goyal.png';
+import hyderabadLogo from '../assets/sponsor-logos/Logo-Hyderabad House.JPG.jpeg';
+import nordicLogo from '../assets/sponsor-logos/N-dentist.png';
+import oruLogo from '../assets/sponsor-logos/ORU.png';
+
 gsap.registerPlugin(ScrollTrigger);
+
+const sponsors2026 = [
+    {
+        name: '5 Rivers Renovation',
+        logo: fiveRiversLogo,
+        since: 2025,
+        category: 'Home Renovation',
+        description: 'Based in the GTA and Kitchener-Waterloo region, 5 Rivers Renovation is a trusted renovation firm specializing in kitchen remodels, bathroom upgrades, stair transformations, and full interior improvements. Known for quality craftsmanship and attention to detail.',
+        testimonial: '"Partnering with Brothers XI has connected us with a supportive community that believes in local businesses. Since joining in 2025, Brothers XI has provided strong local brand visibility, direct customer connections, and meaningful engagement within the GTA and KW regions."',
+        link: 'https://www.instagram.com/5riversrenovation/',
+        linkLabel: '@5riversrenovation',
+    },
+    {
+        name: 'Urban Optical',
+        logo: urbanOpticalLogo,
+        since: 2025,
+        category: 'Eyecare & Eyewear',
+        description: 'Located in Kitchener-Waterloo, Urban Optical is a modern optical boutique dedicated to personalized vision care and premium eyewear. They offer a curated selection of stylish frames, high-quality lenses, and expert eye care services tailored to each customer\'s needs.',
+        testimonial: '"We saw real results — increased brand awareness and a noticeable rise in customer inquiries. Since partnering with Brothers XI in 2025, we\'ve strengthened our connection with the local community through match-day visibility, digital promotions, and strong word-of-mouth. This partnership reflects shared values — professionalism, trust, and community support."',
+        link: 'https://www.urbanoptical.ca/',
+        linkLabel: 'urbanoptical.ca',
+    },
+    {
+        name: 'Saar & Risk Solution',
+        logo: laalitLogo,
+        since: 2025,
+        category: 'Risk & Insurance Advisory',
+        description: 'Led by Lalit Gupta, Saar & Risk Solution provides expert risk management and insurance advisory services — helping individuals and businesses secure their financial future with confidence and clarity.',
+        testimonial: '"The Brothers XI community became genuine advocates, referring friends and colleagues for life insurance and investment planning. It\'s the most human marketing investment I\'ve made for my local business — because people buy from those they trust, and this community trusts each other."',
+        link: 'https://risksolution.ca/',
+        linkLabel: 'risksolution.ca',
+    },
+    {
+        name: 'Nordic Dentistry',
+        logo: nordicLogo,
+        since: 2026,
+        category: 'Dental Clinic',
+        description: 'A full-service dental clinic in Kitchener serving the KW region. Services include preventive care, implants, orthodontics, root canals, oral surgery, and cosmetic dentistry — all with a patient-centered approach.',
+        testimonial: 'Since joining in 2026, Nordic Dentistry has gained meaningful visibility through team promotions and events, strengthening their connection to the local community. Their commitment to patient care aligns perfectly with the Brothers XI values of trust and long-term relationships.',
+        link: 'https://nordicdentistry.com/',
+        linkLabel: 'nordicdentistry.com',
+    },
+    {
+        name: 'Nawabi Hyderabad House',
+        logo: hyderabadLogo,
+        since: 2025,
+        category: 'Restaurant',
+        description: 'Offering authentic Hyderabadi flavours right in Waterloo — from fragrant biryanis and rich curries to tandoori dishes and South Indian favourites. A go-to destination for the region\'s South Asian community.',
+        testimonial: 'Owner Nishant Saini has been a long-time associate of the Brothers XI family — contributing as both a passionate player and a generous sponsor. His support goes beyond business; it\'s a reflection of genuine community spirit and pride in the team\'s success.',
+        link: 'https://hhwaterloo.ca/',
+        linkLabel: 'hhwaterloo.ca',
+    },
+    {
+        name: 'Oru',
+        logo: oruLogo,
+        since: 2026,
+        category: 'Ed Tech Platform',
+        description: 'Oru is where mentorship, peer learning, and community come together to help job seekers grow into confident, job-ready IT professionals. Empowering the next generation of tech talent — one career at a time.',
+        testimonial: 'Cricket and community have always gone hand in hand for us. Supporting Brothers XI felt like a natural extension of what Oru stands for — bringing people together, lifting each other up, and building something meaningful as a team.',
+        link: 'https://joinoru.com/',
+        linkLabel: 'joinoru.com',
+    },
+];
+
 
 // For testing: gogna.sahil95@gmail.com
 // For production: Brothers11cricket@gmail.com
@@ -30,6 +102,7 @@ const sponsorshipPackages = [
         tagline: 'The premier branding opportunity for a partner looking to be the face of Brothers XI.',
         featured: true,
         exclusive: true,
+        isTaken: true,
         benefits: [
             { label: 'Uniform Branding', text: 'Exclusive placement in the Prime Front-of-Jersey location on all player kits.' },
             { label: 'Match-Day Coverage', text: 'Guaranteed branding on all post-match summaries and graphics.' },
@@ -230,7 +303,67 @@ function Sponsorship() {
                 </div>
             </section>
 
-            {/* Packages Section */}
+            {/* 2026 Season Sponsors */}
+            <section className="sponsors-section">
+                <div className="container">
+                    <div className="sponsorship-section-header">
+                        <h2 className="text-h2">Our 2026 Season Partners</h2>
+                        <p>Businesses that believe in Brothers XI — hover each card to hear from them.</p>
+                    </div>
+
+                    <div className="sponsors-grid">
+                        {sponsors2026.map((sponsor) => (
+                            <div key={sponsor.name} className="sponsor-flip-card" aria-label={sponsor.name}>
+                                <div className="sponsor-flip-inner">
+                                    {/* Front */}
+                                    <div className="sponsor-flip-front">
+                                        <div className="sponsor-logo-wrap">
+                                            {sponsor.logo ? (
+                                                <img src={sponsor.logo} alt={sponsor.name} className="sponsor-logo" />
+                                            ) : (
+                                                <div className="sponsor-logo-fallback">{sponsor.logoInitials}</div>
+                                            )}
+                                        </div>
+                                        <div className="sponsor-info">
+                                            <span className="sponsor-since">Official Sponsor · Since {sponsor.since}</span>
+                                            <h3 className="sponsor-name">{sponsor.name}</h3>
+                                            <span className="sponsor-category">{sponsor.category}</span>
+                                            <p className="sponsor-description">{sponsor.description}</p>
+                                        </div>
+                                        <div className="sponsor-hover-hint">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8 12h8M12 8l4 4-4 4" /></svg>
+                                            Hover to read their story
+                                        </div>
+                                    </div>
+
+                                    {/* Back */}
+                                    <div className="sponsor-flip-back">
+                                        <div className="sponsor-quote-mark">&ldquo;</div>
+                                        <p className="sponsor-testimonial">{sponsor.testimonial}</p>
+                                        <div className="sponsor-back-footer">
+                                            <span className="sponsor-back-name">{sponsor.name}</span>
+                                            {sponsor.link && (
+                                                <a
+                                                    href={sponsor.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="sponsor-link-btn"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
+                                                    {sponsor.linkLabel}
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
             <section className="sponsorship-packages">
                 <div className="container">
                     <div className="sponsorship-section-header">
@@ -242,7 +375,7 @@ function Sponsorship() {
                         {sponsorshipPackages.map((pkg) => (
                             <article
                                 key={pkg.tier}
-                                className={`package-card tier-${pkg.tier}${pkg.featured ? ' featured' : ''}`}
+                                className={`package-card tier-${pkg.tier}${pkg.featured ? ' featured' : ''}${pkg.isTaken ? ' taken' : ''}`}
                             >
                                 <div className="package-header">
                                     <span className="package-tier-badge">
@@ -253,7 +386,11 @@ function Sponsorship() {
                                         {pkg.price}
                                         {pkg.priceNote && <span> / {pkg.priceNote}</span>}
                                     </div>
-                                    {pkg.slotLimit && <span className="package-slot-limit">{pkg.slotLimit}</span>}
+                                    {pkg.slotLimit && (
+                                        <span className={`package-slot-limit${pkg.isTaken ? ' slot-taken' : ''}`}>
+                                            {pkg.isTaken ? '✓ Slot Filled' : pkg.slotLimit}
+                                        </span>
+                                    )}
                                     <p className="package-tagline">{pkg.tagline}</p>
                                 </div>
 
@@ -274,12 +411,20 @@ function Sponsorship() {
                                     <button
                                         type="button"
                                         className="package-btn"
-                                        onClick={() => scrollToForm(pkg.tier)}
+                                        onClick={() => !pkg.isTaken && scrollToForm(pkg.tier)}
+                                        disabled={pkg.isTaken}
                                     >
-                                        Show Interest
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
+                                        {pkg.isTaken ? (
+                                            <>
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5" /></svg>
+                                                Position Filled
+                                            </>
+                                        ) : (
+                                            <>
+                                                Show Interest
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </article>
